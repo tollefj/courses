@@ -1,0 +1,33 @@
+type Project {
+  name: String
+  active: Boolean
+  duration: Int
+}
+
+type Employee {
+  id: ID
+  name: String
+  number: String
+  officeLocation: String
+  projects: [Project]
+}
+
+input EmployeeInput {
+  name: String!
+  number: String!
+  officeLocation: String!
+}
+
+type AddEmployeeResponse {
+  success: Boolean
+  message: String
+}
+
+type Query {
+  employees(num: Int, city: String): [Employee]
+  employee(id: ID!): Employee
+}
+
+type Mutation {
+  addEmployee(employee: EmployeeInput): AddEmployeeResponse
+}
