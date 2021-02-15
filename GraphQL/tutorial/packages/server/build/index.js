@@ -23,7 +23,7 @@ require("source-map-support").install();
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "baf0876cf72153c779d5";
+/******/ 	var hotCurrentHash = "b381a73ff396778fbe13";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -865,70 +865,49 @@ module.exports.setLogLevel = function(level) {
 
 /***/ }),
 
-/***/ "../../node_modules/webpack/hot/signal.js":
+/***/ "../../node_modules/webpack/hot/poll.js?1000":
 /***/ (function(module, exports, __webpack_require__) {
 
-/*
+/* WEBPACK VAR INJECTION */(function(__resourceQuery) {/*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
 /*globals __resourceQuery */
 if (true) {
+	var hotPollInterval = +__resourceQuery.substr(1) || 10 * 60 * 1000;
 	var log = __webpack_require__("../../node_modules/webpack/hot/log.js");
+
 	var checkForUpdate = function checkForUpdate(fromUpdate) {
-		module.hot
-			.check()
-			.then(function(updatedModules) {
-				if (!updatedModules) {
-					if (fromUpdate) log("info", "[HMR] Update applied.");
-					else log("warning", "[HMR] Cannot find update.");
-					return;
-				}
-
-				return module.hot
-					.apply({
-						ignoreUnaccepted: true,
-						onUnaccepted: function(data) {
-							log(
-								"warning",
-								"Ignored an update to unaccepted module " +
-									data.chain.join(" -> ")
-							);
-						}
-					})
-					.then(function(renewedModules) {
-						__webpack_require__("../../node_modules/webpack/hot/log-apply-result.js")(updatedModules, renewedModules);
-
-						checkForUpdate(true);
-						return null;
-					});
-			})
-			.catch(function(err) {
-				var status = module.hot.status();
-				if (["abort", "fail"].indexOf(status) >= 0) {
-					log("warning", "[HMR] Cannot apply update.");
-					log("warning", "[HMR] " + (err.stack || err.message));
-					log("warning", "[HMR] You need to restart the application!");
-				} else {
-					log("warning", "[HMR] Update failed: " + (err.stack || err.message));
-				}
-			});
-	};
-
-	process.on( false || "SIGUSR2", function() {
-		if (module.hot.status() !== "idle") {
-			log(
-				"warning",
-				"[HMR] Got signal but currently in " + module.hot.status() + " state."
-			);
-			log("warning", "[HMR] Need to be in idle state to start hot update.");
-			return;
+		if (module.hot.status() === "idle") {
+			module.hot
+				.check(true)
+				.then(function(updatedModules) {
+					if (!updatedModules) {
+						if (fromUpdate) log("info", "[HMR] Update applied.");
+						return;
+					}
+					__webpack_require__("../../node_modules/webpack/hot/log-apply-result.js")(updatedModules, updatedModules);
+					checkForUpdate(true);
+				})
+				.catch(function(err) {
+					var status = module.hot.status();
+					if (["abort", "fail"].indexOf(status) >= 0) {
+						log("warning", "[HMR] Cannot apply update.");
+						log("warning", "[HMR] " + (err.stack || err.message));
+						log("warning", "[HMR] You need to restart the application!");
+					} else {
+						log(
+							"warning",
+							"[HMR] Update failed: " + (err.stack || err.message)
+						);
+					}
+				});
 		}
-
-		checkForUpdate();
-	});
+	};
+	setInterval(checkForUpdate, hotPollInterval);
 } else {}
 
+/* WEBPACK VAR INJECTION */}.call(this, "?1000"))
 
 /***/ }),
 
@@ -1024,8 +1003,8 @@ var getEmployee = function (id) { return _MOCK_DATA_json__WEBPACK_IMPORTED_MODUL
 /***/ (function(module, exports) {
 
 
-    var doc = {"kind":"Document","definitions":[{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Project"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"active"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"duration"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Employee"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"number"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"officeLocation"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"projects"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Project"}}},"directives":[]}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"EmployeeInput"},"directives":[],"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"name"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"number"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"officeLocation"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"AddEmployeeResponse"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"success"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"message"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Query"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"employees"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"num"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"city"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]}],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Employee"}}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"employee"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"id"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},"directives":[]}],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Employee"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Mutation"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"addEmployee"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"employee"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"EmployeeInput"}},"directives":[]}],"type":{"kind":"NamedType","name":{"kind":"Name","value":"AddEmployeeResponse"}},"directives":[]}]}],"loc":{"start":0,"end":497}};
-    doc.loc.source = {"body":"type Project {\n  name: String\n  active: Boolean\n  duration: Int\n}\n\ntype Employee {\n  id: ID\n  name: String\n  number: String\n  officeLocation: String\n  projects: [Project]\n}\n\ninput EmployeeInput {\n  name: String!\n  number: String!\n  officeLocation: String!\n}\n\ntype AddEmployeeResponse {\n  success: Boolean\n  message: String\n}\n\ntype Query {\n  employees(num: Int, city: String): [Employee]\n  employee(id: ID!): Employee\n}\n\ntype Mutation {\n  addEmployee(employee: EmployeeInput): AddEmployeeResponse\n}","name":"GraphQL request","locationOffset":{"line":1,"column":1}};
+    var doc = {"kind":"Document","definitions":[{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Project"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"active"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"duration"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Employee"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"number"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"officeLocation"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"projects"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Project"}}},"directives":[]}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"EmployeeInput"},"directives":[],"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"name"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"number"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"officeLocation"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"AddEmployeeResponse"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"success"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"message"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Query"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"employees"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"num"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}},"directives":[]},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"city"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}},"directives":[]}],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Employee"}}},"directives":[]},{"kind":"FieldDefinition","name":{"kind":"Name","value":"employee"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"id"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},"directives":[]}],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Employee"}},"directives":[]}]},{"kind":"ObjectTypeDefinition","name":{"kind":"Name","value":"Mutation"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"addEmployee"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"employee"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"EmployeeInput"}},"directives":[]}],"type":{"kind":"NamedType","name":{"kind":"Name","value":"AddEmployeeResponse"}},"directives":[]}]}],"loc":{"start":0,"end":529}};
+    doc.loc.source = {"body":"type Project {\r\n  name: String\r\n  active: Boolean\r\n  duration: Int\r\n}\r\n\r\ntype Employee {\r\n  id: ID\r\n  name: String\r\n  number: String\r\n  officeLocation: String\r\n  projects: [Project]\r\n}\r\n\r\ninput EmployeeInput {\r\n  name: String!\r\n  number: String!\r\n  officeLocation: String!\r\n}\r\n\r\ntype AddEmployeeResponse {\r\n  success: Boolean\r\n  message: String\r\n}\r\n\r\ntype Query {\r\n  employees(num: Int, city: String): [Employee]\r\n  employee(id: ID!): Employee\r\n}\r\n\r\ntype Mutation {\r\n  addEmployee(employee: EmployeeInput): AddEmployeeResponse\r\n}","name":"GraphQL request","locationOffset":{"line":1,"column":1}};
   
 
     var names = {};
@@ -1196,7 +1175,7 @@ function graphiqlExpress(options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("@babel/polyfill");
-__webpack_require__("../../node_modules/webpack/hot/signal.js");
+__webpack_require__("../../node_modules/webpack/hot/poll.js?1000");
 module.exports = __webpack_require__("./src/index.ts");
 
 
@@ -1273,4 +1252,4 @@ module.exports = require("url");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.9e96d7912792db660c8f.js.map
+//# sourceMappingURL=index.b3540eb4eeca75241b7d.js.map
