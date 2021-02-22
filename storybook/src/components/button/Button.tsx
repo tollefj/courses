@@ -2,7 +2,7 @@ import React from 'react';
 import './button.css';
 
 export interface ButtonProps {
-  mode: 'primary' | 'secondary' | 'disabled'
+  mode: 'primary' | 'secondary';
   size: 'small' | 'medium' | 'large'
   label: string
   icon: React.ReactElement

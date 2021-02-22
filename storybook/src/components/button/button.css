@@ -20,7 +20,7 @@
     justify-content: space-around;
 }
 
-.delutb-button--disabled {
+.delutb-button:disabled {
     background: var(--gray);
     color: var(--disabled);
     box-shadow: none;
