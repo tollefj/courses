@@ -1,0 +1,17 @@
+:root {
+    /* elementfarger */
+    --red: #E32129;
+    --dark-blue: #065E7F;
+    --orange: #FF9600;
+    --disabled: #B5B5B5;
+    /* bakgrunnsfarger */
+    --charchoal: #45515A;       /* bakgrunn til menyer */
+    --darker-gray: #444F55;     /* tekstfarge og understreker */
+    --dark-gray: #DADADA;       /* bakgrunn bokser/knapper + hover */
+    --gray: #ECECEC;            /* bakgrunn bokser/knapper */
+    --light-gray: #F5F5F5;      /* hovedbakgrunnsfarge */
+}
+
+html, body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
