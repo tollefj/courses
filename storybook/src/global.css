@@ -9,6 +9,7 @@
     --disabled: #B5B5B5;
     /* bakgrunnsfarger */
     --charchoal: #45515A;       /* bakgrunn til menyer */
+    --dark-charchoal: #272e33;       /* bakgrunn til menyer */
     --darker-gray: #444F55;     /* tekstfarge og understreker */
     --dark-gray: #DADADA;       /* bakgrunn bokser/knapper + hover */
     --gray: #ECECEC;            /* bakgrunn bokser/knapper */
@@ -23,7 +24,7 @@ body {
     margin: 0 auto;
     width: 80vw;
     height: 100%;
-    background-color: var(--light-gray);
+    background: var(--light-gray);
 }
 
 .content {

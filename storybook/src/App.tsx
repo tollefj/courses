@@ -17,6 +17,8 @@ function App() {
       </Select>
       <h2>buttons</h2>
       <Button label='testbtn' mode='primary' size='large' />
+      <br/>
+      <Button label='testbtn' mode='secondary' size='medium' />
     </div>
   );
 }

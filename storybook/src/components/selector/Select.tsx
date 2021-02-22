@@ -33,7 +33,7 @@ export const Select: React.FC<SelectProps> = ({
                     selector box
                 </div>
                 <div className={clsx(createClass(ID, 'selector-icon'), open && 'rotated')}>
-                    <ExpandIcon />
+                    <ExpandIcon fill='whitesmoke'/>
                 </div>
             </div>
             <div className={createClass(ID, 'content-wrapper')}>
