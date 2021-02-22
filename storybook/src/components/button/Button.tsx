@@ -5,8 +5,8 @@ export interface ButtonProps {
   mode: 'primary' | 'secondary';
   size: 'small' | 'medium' | 'large'
   label: string
-  icon: React.ReactElement
-  backgroundColor: string  // for storybook
+  icon?: React.ReactElement
+  backgroundColor?: string  // for storybook
 }
 
 export const Button: React.FC<ButtonProps> = ({
