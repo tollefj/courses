@@ -4,9 +4,14 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Button, ButtonProps } from './Button';
 
+import { ReactComponent as DownloadIcon } from '../../assets/SVG/download.svg';
+
 export default {
   title: 'DelUTB/Knapp',
-  component: Button
+  component: Button,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
@@ -15,6 +20,14 @@ export const Primary = Template.bind({});
 Primary.args = {
     mode: 'primary',
     label: 'Button',
+};
+
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+    mode: 'primary',
+    size: 'large',
+    label: 'Button with icon',
+    icon: <DownloadIcon />
 };
 
 export const Secondary = Template.bind({});

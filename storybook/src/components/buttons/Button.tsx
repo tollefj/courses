@@ -6,6 +6,7 @@ export interface ButtonProps {
   size: 'small' | 'medium' | 'large'
   label: string
   icon: React.ReactElement
+  backgroundColor: string  // for storybook
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -13,15 +14,18 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   label,
   icon = undefined,
+  backgroundColor, // for storybook
   ...props
 }) => {
   const btnMode = `delutb-button--${mode}`
   const btnSize = `delutb-button--${size}`;
+  const btnIcon = !!icon && 'delutb-button--icon';
 
   return (
     <button
       type="button"
-      className={['delutb-button', btnSize, btnMode].join(' ')}
+      className={['delutb-button', btnIcon, btnSize, btnMode].join(' ')}
+      style={{backgroundColor}}
       {...props}
     >
       {icon && icon}
