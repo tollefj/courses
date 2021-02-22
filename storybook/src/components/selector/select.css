@@ -45,16 +45,34 @@
 
 .delutb-select--content-wrapper {
     position: absolute;
+    visibility: hidden;
     width: 100%;
     z-index: 10;
     background: var(--light-gray);
     box-shadow: 0 4px 4px 0 var(--charchoal);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
+}
+
+.delutb-select--content-wrapper-open {
+    visibility: visible;
+    transform: scaleY(1);
 }
 
 .delutb-select--content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
     padding: 10px 10px 20px;
     min-height: 50px;
 }
+
+.delutb-select--content-open {
+    opacity: 1;
+    padding: 10px 10px 20px;
+    min-height: 50px;
+}
+
 
 .delutb-select--wide {
     width: 300px;

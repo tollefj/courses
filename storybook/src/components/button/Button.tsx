@@ -6,6 +6,7 @@ export interface ButtonProps {
   size: 'small' | 'medium' | 'large'
   label: string
   icon?: React.ReactElement
+  iconPosition?: string
   backgroundColor?: string  // for storybook
 }
 
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   label,
   icon = undefined,
+  iconPosition = 'left',
   backgroundColor, // for storybook
   ...props
 }) => {
@@ -28,8 +30,9 @@ export const Button: React.FC<ButtonProps> = ({
       style={{backgroundColor}}
       {...props}
     >
-      {icon && icon}
+      {iconPosition === 'left' && icon}
       {label}
+      {iconPosition === 'right' && icon}
     </button>
   );
 };

@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Button, ButtonProps } from './Button';
 import { ReactComponent as DownloadIcon } from '../../assets/SVG/download.svg';
+import { ReactComponent as NextIcon } from '../../assets/SVG/next.svg';
 
 export default {
   title: 'DelUTB/Knapp',
@@ -28,6 +29,14 @@ PrimaryWithIcon.args = {
     icon: <DownloadIcon />
 };
 
+export const PrimaryNext = Template.bind({});
+PrimaryNext.args = {
+    mode: 'primary',
+    size: 'medium',
+    label: 'Gogogo',
+    icon: <NextIcon width={10} />,
+    iconPosition: 'right'
+};
 export const Secondary = Template.bind({});
 Secondary.args = {
     mode: 'secondary',
