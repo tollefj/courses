@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { ReactComponent as ExpandIcon } from '../../assets/SVG/expand.svg';
 import createClass from '../../utils/createClass';
-import './select.css';
+import './style.css';
 
 export interface SelectProps {
     label: string

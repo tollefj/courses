@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import './style.css';
 
 export interface ButtonProps {
   mode: 'primary' | 'secondary';

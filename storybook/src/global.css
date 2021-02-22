@@ -8,6 +8,7 @@
     --dark-orange: #c47303;
     --disabled: #B5B5B5;
     /* bakgrunnsfarger */
+    --light-charchoal: #687785; /* custom */
     --charchoal: #45515A;       /* bakgrunn til menyer */
     --dark-charchoal: #272e33;       /* bakgrunn til menyer */
     --darker-gray: #444F55;     /* tekstfarge og understreker */
@@ -26,14 +27,14 @@ html {
 #root {
     margin: 0;
     background: var(--light-gray);
-    color: var(--darker-gray);
+    color: var(--light-gray);
+    /* color: var(--darker-gray); */
 }
 
 #content {
     padding-top: 1em;
     margin: 0;
     min-height: 100vh;
-    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
 }
 
 h1 {

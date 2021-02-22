@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Header, HeaderProps } from './Header';
+import { Header } from './Header';
+import { HeaderProps } from './types';
 
 export default {
   title: 'DelUTB/Meny',
@@ -16,8 +17,8 @@ const SampleUser = {
 }
 
 const SampleMenu = [
-    { field: 'Map', url: '/map' },
-    { field: 'Data', url: '/data' }
+    { label: 'Map', url: '/map' },
+    { label: 'Data', url: '/data' }
 ];
 
 export const DefaultHeader = Template.bind({});

@@ -6,19 +6,20 @@ import { Header } from './components/header/Header';
 import bgImg from './assets/images/bridge.jpg'
 
 const SampleUser = {
-    name: 'Ada Myhren',
+    firstName: 'Ada',
+    lastName: 'Myhren',
     initials: 'AM'
 }
 
 const SampleMenu = [
-    { field: 'Map', url: '/map' },
-    { field: 'Data', url: '/data' }
+    { label: 'Map', url: '/map' },
+    { label: 'Data', url: '/data' }
 ];
 
 function App() {
   return (
     <>
-      <Header userName={SampleUser} menuItems={SampleMenu} />
+      <Header user={SampleUser} menuItems={SampleMenu} />
       <div id='content' style={{
         backgroundImage: `url(${bgImg})`,
         backgroundRepeat: 'no-repeat',

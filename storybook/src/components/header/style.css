@@ -1,0 +1,123 @@
+.delutb-header {
+    background: var(--charchoal);
+    width: 100%;
+}
+
+.delutb-header--container {
+    margin: 0 10vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.slim-container {
+    height: 60px;
+}
+
+.delutb-header p {
+    font-size: 12px;
+    line-height: 1em;
+    color: var(--light-gray);
+    transition: color 0.1s ease-in;
+}
+
+.delutb-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0;
+    color: var(--light-gray);
+    transition: color 0.1s ease-in;
+}
+
+.noselect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.delutb-header--logo {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+.logo-hover h2, .logo-hover p {
+    color: var(--orange);
+}
+path {
+    transition: fill 0.1s ease-in;
+}
+
+#logo-text {
+    margin-left: 1em;
+    min-width: 220px;
+}
+
+/* MENU */
+.delutb-header--menu {
+    display: flex;
+    flex-grow: 6;
+}
+
+#menu-item {
+    margin-right: 1em;
+    display: flex;
+    text-transform: uppercase;
+}
+#menu-item a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    transition: color 0.1s ease-in;
+}
+#menu-item a:hover {
+    color: var(--orange);
+}
+
+#menu-item-line {
+    border-right: 1px solid var(--light-charchoal);
+    height: 24px;
+    margin: 0 0 0 20px;
+}
+#menu-item:last-of-type pre {
+    border-right: none;
+}
+/* END MENU */
+
+/* USER */
+.delutb-header--user {
+    display: flex;
+    align-content: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.delutb-header--user-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 6px 10px 5px 0;
+}
+#first-name {
+    font-size: 14px;
+    font-weight: 700;
+}
+#last-name {
+    font-size: 12px;
+    font-weight: 400;
+}
+#user-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--orange);
+    color: var(--charchoal);
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: bold;
+}
+/* END USER */
