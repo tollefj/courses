@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './global.css';
+import { Select } from './components/selector/Select';
+import { Button } from './components/button/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='content'>
+      <h1>DEMO</h1>
+      <h2>demo of wide</h2>
+      <Select label='wide select' size='wide'>
+        this is a child of wide select
+      </Select>
+      <h2>demo of narrow</h2>
+      <Select label='narrow select' size='narrow'>
+        this is a child of wide select
+      </Select>
+      <h2>buttons</h2>
+      <Button label='testbtn' mode='primary' size='large' />
     </div>
   );
 }
