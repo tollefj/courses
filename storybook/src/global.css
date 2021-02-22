@@ -26,6 +26,7 @@ html {
 #root {
     margin: 0;
     background: var(--light-gray);
+    color: var(--darker-gray);
 }
 
 #content {
@@ -33,4 +34,11 @@ html {
     margin: 0;
     min-height: 100vh;
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: bold;
+    color: var(--light-gray);
 }
