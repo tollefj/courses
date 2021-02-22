@@ -11,16 +11,6 @@ export default {
 
 const Template: Story<HeaderProps> = (args) => <Header {...args} />;
 
-const SampleUser = {
-    name: 'Ada Myhren',
-    initials: 'AM'
-}
-
-const SampleMenu = [
-    { label: 'Map', url: '/map' },
-    { label: 'Data', url: '/data' }
-];
-
 export const DefaultHeader = Template.bind({});
 DefaultHeader.args = {
 };

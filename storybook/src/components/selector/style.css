@@ -1,11 +1,11 @@
 .delutb-select {
     font-style: normal;
     position: relative;
+    color: var(--darker-gray);
 }
 
 .delutb-select--label {
     font-weight: normal;
-    color: var(--charchoal);
     text-transform: capitalize;
 }
 
@@ -25,6 +25,14 @@
     background: var(--dark-charchoal);
 }
 
+.delutb-select--chevron {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: var(--charchoal);
+    color: var(--light-gray);
+}
+
 .delutb-select--selector-text {
     margin-left: 1em;
 }
@@ -34,30 +42,58 @@
     display: flex;
     transition: all 0.15s ease-in-out;
     transform: rotate(0deg);
-    -ms-transform: rotate(0deg); /* IE 9 */
-    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(0deg); /* ie 9 */
+    -webkit-transform: rotate(0deg); /* chrome, safari, opera */
 }
 .rotated {
     transform: rotate(180deg);
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(180deg); /* ie 9 */
+    -webkit-transform: rotate(180deg); /* chrome, safari, opera */
 }
 
 .delutb-select--content-wrapper {
+    color: var(--darker-gray);
     position: absolute;
     visibility: hidden;
     width: 100%;
     z-index: 10;
     background: var(--light-gray);
     box-shadow: 0 4px 4px 0 var(--charchoal);
-    transform: scaleY(0);
-    transform-origin: top;
+    transform: scaley(0);
+    transform-origin: top left;
     transition: all 0.2s ease-in-out;
 }
 
 .delutb-select--content-wrapper-open {
     visibility: visible;
-    transform: scaleY(1);
+    transform: scaley(1);
+}
+
+.chevron-wrapper {
+    display: flex;
+    margin-left: 9px;
+}
+
+.chevron-content {
+    min-width: 200px;
+    background: var(--charchoal);
+    color: var(--light-gray);
+}
+
+.chevron-content li {
+    list-style-type: none;
+}
+
+.delutb-chevron-select--content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 0 10px 10px;
+    min-height: 50px;
+}
+
+.delutb-chevron-select--content-open {
+    opacity: 1;
+    min-height: 50px;
 }
 
 .delutb-select--content {
@@ -69,7 +105,6 @@
 
 .delutb-select--content-open {
     opacity: 1;
-    padding: 10px 10px 20px;
     min-height: 50px;
 }
 

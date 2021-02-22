@@ -1,9 +1,9 @@
-interface MenuItem {
+export interface MenuItem {
     label: string
     url: string
 }
 
-interface User {
+export interface User {
     firstName: string
     lastName: string
     initials: string

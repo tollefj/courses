@@ -43,3 +43,7 @@ h1 {
     font-weight: bold;
     color: var(--light-gray);
 }
+
+.underline {
+    border-bottom: 1px solid var(--light-charchoal);
+}

@@ -5,8 +5,9 @@ import createClass from '../../utils/createClass';
 import { HeaderProps } from './types';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useState } from 'react';
+import { UserInfo } from './components/UserInfo';
 
-const ID = 'delutb-header';
+export const ID = 'delutb-header';
 
 export const Header: React.FC<HeaderProps> = ({
     menuItems = [
@@ -43,6 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
                         </div>
                     )}
                 </div>
+
                 <div className={createClass(ID, 'menu')}>
                     {menuItems.map((menuItem) => (
                         <div id='menu-item' key={menuItem.url}>
@@ -53,17 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
                         </div>
                     ))}
                 </div>
-                { user && (
-                    <div className={createClass(ID, 'user')}>
-                        <div className={createClass(ID, 'user-name')}>
-                            <div id='first-name'>{user.firstName}</div>
-                            <div id='last-name'>{user.lastName}</div>
-                        </div>
-                        <div id='user-circle'>
-                            {user.initials}
-                        </div>
-                    </div>
-                )}
+                { user && <UserInfo user={user} tiny={isTiny} />}
             </div>
         </div>
     )
