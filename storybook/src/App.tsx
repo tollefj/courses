@@ -3,11 +3,14 @@ import './global.css';
 import { Select } from './components/selector/Select';
 import { Button } from './components/button/Button';
 import { Header } from './components/header/Header';
-import bgImg from './assets/images/bridge.jpg'
+import bgImg from './assets/images/e39.jpg'
 import { Card } from './components/card/Card';
 
 import MapIcon from './assets/pages/map.png';
 import DataIcon from './assets/pages/data.png';
+import { ListCard } from './components/list/ListCard';
+import { NcfMetadata } from './sharedTypes/Ncf';
+import { ListCardWrapper } from './components/list/ListCardWrapper';
 
 const SampleUser = {
     firstName: 'Ada',
@@ -35,6 +38,52 @@ const CardData = [
   }
 ]
 
+const ButtonsAndSelections = () => (
+  <>
+    <Select label='wide select' size='wide'>
+      this is a child of wide select
+      this is a child of wide select
+    </Select>
+    <Select label='narrow select' size='narrow'>
+      this is a child of narrow select
+      this is a child of narrow select
+    </Select>
+    <h2>buttons</h2>
+    <Button label='testbtn' mode='primary' size='large' />
+    <br/>
+    <Button label='testbtn' mode='secondary' size='medium' />
+  </>
+)
+
+const Cards = () => (
+  <div className='delutb-app--cards'>
+    {CardData.map((card) => (
+      <Card key={card.id} title={card.title} description={card.description} icon={card.icon}/>
+    ))}
+  </div>
+)
+
+const MetaData : NcfMetadata = {
+  time: {
+    start: new Date("06-Jan-2015"),
+    end: new Date("31-Jan-2015")
+  },
+  project: "Bjørnafjorden",
+  documentation: "Wave and current measurements in Bjørnafjorden. Data report 6, Hørsholm: DHI",
+  location: "BFA1",
+  position: {
+    X: "298224",
+    Y: "6670166",
+    Z: "-21.8"
+  },
+  file: {
+    creationDate: new Date("28-Mar-2018"),
+    createdBy: "Daha"
+  }
+}
+
+const AllListItems : NcfMetadata[] = new Array(20).fill(MetaData);
+
 function App() {
   console.log('img:', MapIcon)
   return (
@@ -42,28 +91,12 @@ function App() {
       <Header user={SampleUser} menuItems={SampleMenu} />
       <div id='content' style={{
         // backgroundImage: `url(${bgImg})`,
-        backgroundColor: 'black',
+        backgroundColor: '#f5f5f5',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'
       }}>
         <h1>DEMO</h1>
-        <div class='delutb-app--cards'>
-          {CardData.map((card) => (
-            <Card key={card.id} title={card.title} description={card.description} icon={card.icon}/>
-          ))}
-        </div>
-        <Select label='wide select' size='wide'>
-          this is a child of wide select
-          this is a child of wide select
-        </Select>
-        <Select label='narrow select' size='narrow'>
-          this is a child of narrow select
-          this is a child of narrow select
-        </Select>
-        <h2>buttons</h2>
-        <Button label='testbtn' mode='primary' size='large' />
-        <br/>
-        <Button label='testbtn' mode='secondary' size='medium' />
+        <ListCardWrapper data={AllListItems} />
       </div>
     </>
   );
