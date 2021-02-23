@@ -47,3 +47,16 @@ h1 {
 .underline {
     border-bottom: 1px solid var(--light-charchoal);
 }
+
+.delutb-app--cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delutb-app--cards > div {
+    margin-right: 69px;
+}
+.delutb-app--cards > div:last-child {
+    margin-right: 0px;
+}

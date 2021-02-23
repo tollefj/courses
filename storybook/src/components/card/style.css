@@ -1,0 +1,19 @@
+.delutb-card--wrapper {
+    width: 360px;
+    height: 400px;
+    background: var(--light-gray);
+    color: var(--darker-gray);
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.delutb-card--container {
+    margin: 38px;
+}
+
+.delutb-card--footer {
+    position: absolute;
+    bottom: 23px;
+    right: 21px;
+}

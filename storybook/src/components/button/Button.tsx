@@ -1,16 +1,16 @@
-import React from 'react';
+import { FC, ReactElement} from 'react';
 import './style.css';
 
 export interface ButtonProps {
   mode: 'primary' | 'secondary';
   size: 'small' | 'medium' | 'large'
   label: string
-  icon?: React.ReactElement
-  iconPosition?: string
+  icon?: ReactElement
+  iconPosition?: 'left' | 'right'
   backgroundColor?: string  // for storybook
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   mode = 'primary',
   size = 'medium',
   label,
