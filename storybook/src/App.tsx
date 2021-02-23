@@ -11,6 +11,7 @@ import DataIcon from './assets/pages/data.png';
 import { ListCard } from './components/list/ListCard';
 import { NcfMetadata } from './sharedTypes/Ncf';
 import { ListCardWrapper } from './components/list/ListCardWrapper';
+import { Search } from './components/search/Search';
 
 const SampleUser = {
     firstName: 'Ada',
@@ -96,6 +97,7 @@ function App() {
         backgroundSize: 'cover'
       }}>
         <h1>DEMO</h1>
+        <Search />
         {/* <ListCardWrapper data={AllListItems} /> */}
       </div>
     </>
