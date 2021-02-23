@@ -1,0 +1,79 @@
+.delutb-filtering--container {
+  display: flex;
+  align-items: center;
+  color: var(--darker-gray);
+  max-width: 175px;
+  height: 25px;
+}
+
+#filter-icon {
+  margin-right: 10px;
+}
+
+#filter-text {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.delutb-filtering--checkbox {
+  position: relative;
+  cursor: pointer;
+  padding-right: 30px;
+  padding-bottom: 17px;
+}
+
+/* Hide the browser's default checkbox */
+.delutb-filtering--checkbox input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  /* border: 3px solid var(--dark-gray); */
+  border: 2px solid var(--blue);
+  background-color: var(--light-gray);
+}
+
+/* On mouse-over, add a grey background color */
+.delutb-filtering--checkbox:hover input ~ .checkmark {
+  background-color: var(--gray);
+}
+
+/* When the checkbox is checked, add a background */
+.delutb-filtering--checkbox input:checked ~ .checkmark {
+  background-color: var(--light-gray);
+  background-color: inherit;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.delutb-filtering--checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.delutb-filtering--checkbox .checkmark:after {
+  left: 3px;
+  bottom: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--orange);
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

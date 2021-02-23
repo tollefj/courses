@@ -1,5 +1,5 @@
+import { SelectChevron } from '../../../components/selector/SelectChevron';
 import { User } from '../types';
-import { SelectChevron } from '../../selector/SelectChevron';
 
 const UserMenuItem = ({ label, url }: { label: string, url: string}) => (
     <div id='menu-item' className='underline'>

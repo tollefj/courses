@@ -6,7 +6,7 @@ import { getShortDate, getLongDate } from '../../utils/date';
 import { measuringIcons } from '../../utils/measuringIcons';
 import clsx from 'clsx';
 import { UTMtoString } from '../../utils/position';
-import { Checkbox } from '../checkbox/Checkbox';
+import { Checkbox } from '../../components/checkbox/Checkbox';
 
 const ExpandedContentField = ({ title, content }: { title: string, content: String}) => (
     <div className='delutb-listcard--content-field'>

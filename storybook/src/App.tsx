@@ -2,16 +2,18 @@ import React from 'react';
 import './global.css';
 import { Select } from './components/selector/Select';
 import { Button } from './components/button/Button';
-import { Header } from './components/header/Header';
+import { Header } from './modules/header/Header';
 import bgImg from './assets/images/e39.jpg'
 import { Card } from './components/card/Card';
 
 import MapIcon from './assets/pages/map.png';
 import DataIcon from './assets/pages/data.png';
-import { ListCard } from './components/list/ListCard';
+import { ListCard } from './modules/list/ListCard';
 import { NcfMetadata } from './sharedTypes/Ncf';
-import { ListCardWrapper } from './components/list/ListCardWrapper';
+import { ListCardWrapper } from './modules/list/ListCardWrapper';
 import { Search } from './components/search/Search';
+import { MeasureFilter } from './modules/MeasureFilter/MeasureFilter';
+import { measuringIcons } from './utils/measuringIcons';
 
 const SampleUser = {
     firstName: 'Ada',
@@ -97,7 +99,10 @@ function App() {
         backgroundSize: 'cover'
       }}>
         <h1>DEMO</h1>
-        <Search />
+        <MeasureFilter icon={measuringIcons['wind']} text='Vinddata' />
+        <MeasureFilter icon={measuringIcons['wave']} text='Bølgedata' />
+        <MeasureFilter icon={measuringIcons['current']} text='Strømdata' />
+        <MeasureFilter icon={measuringIcons['depth']} text='Dybdedata' />
         {/* <ListCardWrapper data={AllListItems} /> */}
       </div>
     </>
