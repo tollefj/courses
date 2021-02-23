@@ -96,7 +96,7 @@ function App() {
         backgroundSize: 'cover'
       }}>
         <h1>DEMO</h1>
-        <ListCardWrapper data={AllListItems} />
+        {/* <ListCardWrapper data={AllListItems} /> */}
       </div>
     </>
   );
