@@ -1,5 +1,5 @@
 # Vim intro - Faglig kvarter
-### Capgemini Trondheim, Mars 2020
+### Capgemini Trondheim, Mars 2021
 ---
 ## Hva er Vim?
 En teksteditor basert på vi (vi improved). Vi var den første teksteditoren i Unix (1976), og Vim ble lansert i 1991.
